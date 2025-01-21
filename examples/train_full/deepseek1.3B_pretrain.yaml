@@ -1,0 +1,47 @@
+### model
+model_name_or_path: deepseek-ai/deepseek-coder-1.3b-base
+template: deepseekcoder
+
+### method
+stage: pt
+do_train: true
+finetuning_type: full
+deepspeed: examples/deepspeed/ds_z2_config.json
+
+### dataset
+dataset: astro-cpt-train
+eval_dataset: astro-cpt-eval
+buffer_size: 128
+preprocessing_batch_size: 128
+cutoff_len: 2048
+overwrite_cache: true
+preprocessing_num_workers: 16
+# tokenized_path: tokenized_data
+
+### output
+output_dir: /scratch/07144/yw23374/base_models/DeepSeek/deepseek-coder-1.3B-jan7
+logging_steps: 10
+save_steps: 1000
+plot_loss: true
+overwrite_output_dir: true
+
+### train
+per_device_train_batch_size: 8
+gradient_accumulation_steps: 8
+learning_rate: 0.0004
+num_train_epochs: 3.0
+lr_scheduler_type: cosine
+warmup_ratio: 0.1
+bf16: true
+ddp_timeout: 180000000
+include_num_input_tokens_seen: True
+flash_attn: fa2
+
+### eval
+per_device_eval_batch_size: 1
+eval_strategy: steps
+eval_steps: 500
+
+## wandb
+report_to: wandb
+run_name: cpt_deepseek_v0 # optional

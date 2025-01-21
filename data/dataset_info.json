@@ -592,6 +592,18 @@
       "prompt": "completion"
     }
   },
+  "astro-cpt-train": {
+    "file_name": "/scratch/07144/yw23374/data/structured_cpt_train.jsonl",
+    "columns": {
+      "prompt": "text"
+    }
+  },
+  "astro-cpt-eval": {
+    "file_name": "/scratch/07144/yw23374/data/structured_cpt_test.jsonl",
+    "columns": {
+      "prompt": "text"
+    }
+  },
   "pile": {
     "hf_hub_url": "monology/pile-uncopyrighted",
     "ms_hub_url": "AI-ModelScope/pile",
